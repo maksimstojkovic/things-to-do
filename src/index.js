@@ -1,5 +1,6 @@
 import './style.scss';
 import { Project } from './models/project';
+import { BaseScreen } from './screens/base';
 
 const App = (() => {
   const projects = [];
@@ -17,6 +18,7 @@ const App = (() => {
   return { getProjects, createProject, deleteProject };
 })();
 
+BaseScreen.render();
 App.createProject();
 
 // TODO: Remove in production
