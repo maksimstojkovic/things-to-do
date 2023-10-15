@@ -48,6 +48,44 @@ body {
     height: var(--navbar-height);
     box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.1);
     z-index: 1;
+
+    font-size: 2rem;
+    font-weight: bold;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    cursor: default;
+    user-select: none;
+
+    .back-btn,
+    .site-name {
+      cursor: pointer;
+    }
+
+    .back-btn {
+      width: 30px;
+      height: 30px;
+      margin-right: 10px;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 15px;
+
+      border: rgba(0, 0, 0, 0) solid 2px;
+      transition: all 0.1s ease-in-out;
+
+      &:hover {
+        border-color: grey;
+      }
+    }
+
+    .title {
+      flex: 1;
+    }
   }
 
   .content {

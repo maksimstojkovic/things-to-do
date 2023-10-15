@@ -8,7 +8,14 @@ const BaseScreen = (() => {
       'container'
     );
 
-    appendChild(containerDiv, 'div', 'navbar');
+    // Navbar
+    const navbarDiv = appendChild(containerDiv, 'div', 'navbar');
+    appendChild(navbarDiv, 'div', 'back-btn');
+    appendChild(navbarDiv, 'div', 'title');
+    const siteNameDiv = appendChild(navbarDiv, 'div', 'site-name');
+    siteNameDiv.textContent = 'Things To Do';
+
+    // Content
     appendChild(containerDiv, 'div', 'content');
   };
 
