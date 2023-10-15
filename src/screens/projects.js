@@ -15,7 +15,7 @@ const ProjectsScreen = (() => {
 
     const projectsDiv = appendChild(contentDiv, 'div', 'projects');
 
-    app.getProjects().forEach((project) => {
+    app.getProjects().forEach((project, index) => {
       const projectDiv = appendChild(projectsDiv, 'div', 'project card');
 
       const leftDiv = appendChild(projectDiv, 'div', 'left');
@@ -35,13 +35,22 @@ const ProjectsScreen = (() => {
 
       // Right half of card
       const buttonsDiv = appendChild(rightDiv, 'div', 'buttons');
+      const editButton = appendChild(buttonsDiv, 'button');
+      editButton.textContent = 'Edit';
       const deleteButton = appendChild(buttonsDiv, 'button', 'delete');
       deleteButton.textContent = 'Delete';
 
       // Event listeners
-      leftDiv.addEventListener('click', () =>
-        ProjectScreen.render(app, project)
-      );
+      leftDiv.addEventListener('click', () => {
+        ProjectScreen.render(app, project);
+      });
+
+      editButton.addEventListener('click', () => {});
+
+      deleteButton.addEventListener('click', () => {
+        app.deleteProject(index);
+        render(app);
+      });
     });
   };
 

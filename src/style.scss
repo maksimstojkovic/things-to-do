@@ -105,6 +105,11 @@ body {
 
 // BUTTONS
 
+.buttons {
+  display: flex;
+  gap: 10px;
+}
+
 button {
   padding: 10px 20px;
   font-weight: bold;
