@@ -11,7 +11,8 @@ const Navbar = (() => {
     }
 
     const navbarDiv = appendChild(parent, 'div', 'navbar');
-    appendChild(navbarDiv, 'div', 'back-btn');
+    const backButtonDiv = appendChild(navbarDiv, 'div', 'back-btn');
+    backButtonDiv.textContent = '<';
     appendChild(navbarDiv, 'div', 'title');
 
     const siteNameDiv = appendChild(navbarDiv, 'div', 'site-name');
@@ -32,14 +33,14 @@ const Navbar = (() => {
 
   const showBackButton = (callback) => {
     const backButtonDiv = document.querySelector('.back-btn');
-    backButtonDiv.classList.add('visible');
+    backButtonDiv.classList.remove('hide');
 
     backButtonDiv.addEventListener('click', callback);
   };
 
   const hideBackButton = () => {
     const backButtonDiv = document.querySelector('.back-btn');
-    backButtonDiv.classList.remove('visible');
+    backButtonDiv.classList.add('hide');
   };
 
   return { render, setTitle, showBackButton, hideBackButton };
