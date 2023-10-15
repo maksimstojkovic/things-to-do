@@ -40,6 +40,7 @@ const Project = (title) => {
     createTodo,
     moveTodoPrev,
     moveTodoNext,
+    deleteTodo,
   };
 };
 
