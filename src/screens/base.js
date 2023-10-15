@@ -1,7 +1,8 @@
 import { appendChild, prependChild } from '../util/helper';
+import { Navbar } from './navbar';
 
 const BaseScreen = (() => {
-  const render = () => {
+  const render = (app) => {
     const containerDiv = prependChild(
       document.querySelector('body'),
       'div',
@@ -9,11 +10,7 @@ const BaseScreen = (() => {
     );
 
     // Navbar
-    const navbarDiv = appendChild(containerDiv, 'div', 'navbar');
-    appendChild(navbarDiv, 'div', 'back-btn');
-    appendChild(navbarDiv, 'div', 'title');
-    const siteNameDiv = appendChild(navbarDiv, 'div', 'site-name');
-    siteNameDiv.textContent = 'Things To Do';
+    Navbar.render(app, containerDiv);
 
     // Content
     appendChild(containerDiv, 'div', 'content');

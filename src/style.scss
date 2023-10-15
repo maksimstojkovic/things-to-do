@@ -28,8 +28,12 @@ body {
   // Borders
   --border-radius: 5px;
 
-  // Container padding
+  // Padding
   --container-padding: 10%;
+  --card-padding: 10px;
+
+  // Spacing
+  --card-spacing: 20px;
 }
 
 // BASE SCREEN (NAVBAR, CONTENT)
@@ -66,20 +70,22 @@ body {
     }
 
     .back-btn {
-      width: 30px;
-      height: 30px;
-      margin-right: 10px;
-
       display: flex;
       justify-content: center;
       align-items: center;
       border-radius: 15px;
 
-      border: rgba(0, 0, 0, 0) solid 2px;
+      .visible {
+        width: 30px;
+        height: 30px;
+        margin-right: 10px;
+      }
+
+      box-shadow: 0 0 0 none;
       transition: all 0.1s ease-in-out;
 
       &:hover {
-        border-color: grey;
+        box-shadow: 0 0 5px var(--color-primary);
       }
     }
 
@@ -90,7 +96,63 @@ body {
 
   .content {
     height: calc(var(--container-height) - var(--navbar-height));
-    padding: 0 var(--container-padding);
+    padding: var(--card-spacing) var(--container-padding);
     background-color: var(--color-light);
+  }
+}
+
+// BUTTONS
+
+button {
+  padding: 10px 20px;
+  font-weight: bold;
+  background-color: var(--color-primary);
+  border: none;
+  border-radius: var(--border-radius);
+
+  &.delete {
+    color: var(--color-white);
+    background-color: var(--color-danger);
+  }
+}
+
+// CARDS
+
+.card {
+  padding: var(--card-padding);
+  border: var(--color-primary) solid 2px;
+  border-radius: calc(2 * var(--border-radius));
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  .left {
+    cursor: pointer;
+  }
+
+  .right {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &:not(:last-child) {
+    margin-bottom: 20px;
+  }
+
+  .title {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  .todo-count {
+    display: flex;
+    flex-direction: row;
+
+    .uom {
+      margin-left: 5px;
+      width: 45px;
+    }
   }
 }
