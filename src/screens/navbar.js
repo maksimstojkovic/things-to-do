@@ -3,11 +3,10 @@ import { appendChild } from '../util/helper';
 // Screen for all projects
 const Navbar = (() => {
   let initialised = false;
-  let app = null;
 
   const render = (app, parent) => {
     if (initialised) {
-      console.log('navbar already initialised');
+      console.log('Navbar already initialised');
       return;
     }
 
@@ -31,11 +30,11 @@ const Navbar = (() => {
     siteNameDiv.textContent = title;
   };
 
-  const showBackButton = (app, screen) => {
+  const showBackButton = (callback) => {
     const backButtonDiv = document.querySelector('.back-btn');
     backButtonDiv.classList.add('visible');
 
-    backButtonDiv.addEventListener('click', screen.render(app));
+    backButtonDiv.addEventListener('click', callback);
   };
 
   const hideBackButton = () => {

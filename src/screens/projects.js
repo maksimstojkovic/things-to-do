@@ -1,6 +1,6 @@
 import { appendChild } from '../util/helper';
-import { ProjectScreen } from './project';
 import { Navbar } from './navbar';
+import { ProjectScreen } from './project';
 
 // Screen for all projects
 const ProjectsScreen = (() => {
@@ -39,10 +39,10 @@ const ProjectsScreen = (() => {
       deleteButton.textContent = 'Delete';
 
       // Event listeners
-      leftDiv.addEventListener('click', () => ProjectScreen.render(project));
+      leftDiv.addEventListener('click', () =>
+        ProjectScreen.render(app, project)
+      );
     });
-
-    console.log(app.getProjects());
   };
 
   return { render };
