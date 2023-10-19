@@ -1,6 +1,6 @@
 import { appendChild, prependChild } from './helper';
 
-const Screen = ((app) => {
+const Screen = (app) => {
   const render_layout = () => {
     // Create navbar, sidebar and content divs
     const body = document.querySelector('body');
@@ -18,6 +18,10 @@ const Screen = ((app) => {
     // Create buttons in project and todo sections
     const addProjectButton = appendChild(sidebar, 'button', 'add-project');
     addProjectButton.textContent = 'New Project';
+    addProjectButton.addEventListener('click', () => {
+      app.createProject('test');
+      console.log(app.getProjects().map((e) => e.getTitle()));
+    });
 
     const addTodoButton = appendChild(content, 'button', 'add-todo');
     addTodoButton.textContent = 'New Todo';
@@ -28,6 +32,6 @@ const Screen = ((app) => {
   };
 
   return { render_layout };
-})();
+};
 
 export { Screen };

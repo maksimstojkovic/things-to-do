@@ -3,7 +3,7 @@ import { Project } from './model';
 import { Screen } from './screen';
 
 const App = (() => {
-  const screen = Screen;
+  let screen = null;
   const projects = [];
 
   const getScreen = () => screen;
@@ -17,7 +17,12 @@ const App = (() => {
     return projects.splice(index, 1);
   };
 
-  return { getScreen, getProjects, createProject, deleteProject };
+  const init = (app) => {
+    screen = Screen(app);
+  };
+
+  return { getScreen, getProjects, createProject, deleteProject, init };
 })();
 
+App.init(App);
 App.getScreen().render_layout();
