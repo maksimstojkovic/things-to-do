@@ -1,5 +1,5 @@
 import './style.scss';
-import { Project } from './models';
+import { Project } from './model';
 
 const App = (() => {
   const projects = [];
