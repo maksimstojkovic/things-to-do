@@ -27,8 +27,8 @@ const Screen = (app) => {
     addTodoButton.textContent = 'New Todo';
 
     // Create div for cards in project and todo sections
-    appendChild(sidebar, 'div', 'cards');
-    appendChild(content, 'div', 'cards');
+    appendChild(sidebar, 'div', 'projects cards');
+    appendChild(content, 'div', 'tasks cards');
   };
 
   return { render_layout };
