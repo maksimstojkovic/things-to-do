@@ -48,6 +48,24 @@ body,
   }
 }
 
+// SHARED LAYOUTS
+.crud-layout {
+  display: grid;
+  grid-template: min-content 1fr / 1fr min-content;
+  align-items: center;
+
+  > button {
+    text-wrap: nowrap;
+  }
+
+  > .cards {
+    grid-column: 1 / -1;
+    align-self: flex-start;
+
+    margin-top: var(--sidebar-spacing);
+  }
+}
+
 // NAVBAR
 .navbar {
   padding: calc(var(--navbar-spacing) + var(--sidebar-spacing));
