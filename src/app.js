@@ -1,9 +1,12 @@
 import './style.scss';
 import { Project } from './model';
+import { Screen } from './screen';
 
 const App = (() => {
+  const screen = Screen;
   const projects = [];
 
+  const getScreen = () => screen;
   const getProjects = () => projects;
 
   const createProject = (title) => {
@@ -14,5 +17,7 @@ const App = (() => {
     return projects.splice(index, 1);
   };
 
-  return { getProjects, createProject, deleteProject };
+  return { getScreen, getProjects, createProject, deleteProject };
 })();
+
+App.getScreen().render_layout();
