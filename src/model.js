@@ -11,7 +11,7 @@ const Project = (title) => {
   const getTodos = () => todos;
 
   const createTodo = (title) => {
-    todos.append(Todo(title));
+    todos.push(Todo(title));
   };
 
   const deleteTodo = (index) => {

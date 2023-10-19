@@ -10,7 +10,7 @@ const App = (() => {
   const getProjects = () => projects;
 
   const createProject = (title) => {
-    projects.append(Project(title));
+    projects.push(Project(title));
   };
 
   const deleteProject = (index) => {
