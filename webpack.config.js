@@ -5,13 +5,13 @@ module.exports = {
   // Use in development
   mode: 'development',
   devtool: 'inline-source-map',
-  
+
   // Use in production
   // mode: 'production',
-  
+
   watch: true,
   entry: {
-    index: './src/index.js',
+    index: './src/app.js',
   },
   output: {
     filename: '[name].bundle.js',
