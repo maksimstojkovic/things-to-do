@@ -53,7 +53,6 @@ const Screen = (app) => {
 
       const editButton = appendChild(card, 'button');
       editButton.textContent = 'Edit';
-
       editButton.addEventListener(
         'click',
         () => {
@@ -63,6 +62,7 @@ const Screen = (app) => {
       );
 
       const deleteButton = appendChild(card, 'button');
+      deleteButton.classList.add('danger');
       deleteButton.textContent = 'Delete';
       deleteButton.addEventListener('click', () => {
         app.deleteProject(index);
@@ -95,6 +95,7 @@ const Screen = (app) => {
       );
 
       const deleteButton = appendChild(card, 'button');
+      deleteButton.classList.add('danger');
       deleteButton.textContent = 'Delete';
       deleteButton.addEventListener('click', () => {
         project.deleteTodo(index);
