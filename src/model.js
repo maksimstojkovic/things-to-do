@@ -10,6 +10,8 @@ const Project = (title) => {
   const getTitle = () => title;
   const getTodos = () => todos;
 
+  const setTitle = (newTitle) => (title = newTitle);
+
   const createTodo = (title) => {
     todos.push(Todo(title));
   };
@@ -18,7 +20,7 @@ const Project = (title) => {
     return todos.splice(index, 1);
   };
 
-  return { getTitle, getTodos, createTodo, deleteTodo };
+  return { getTitle, getTodos, setTitle, createTodo, deleteTodo };
 };
 
 export { Project };

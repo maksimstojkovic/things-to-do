@@ -5,6 +5,7 @@ import { Screen } from './screen';
 const App = (() => {
   let screen = null;
   const projects = [];
+  let activeProject = null;
 
   const getScreen = () => screen;
   const getProjects = () => projects;
@@ -14,15 +15,34 @@ const App = (() => {
   };
 
   const deleteProject = (index) => {
-    return projects.splice(index, 1);
+    const removedProject = projects.splice(index, 1);
+
+    if (projects.length === 0) {
+      activeProject = null;
+    } else if (index <= activeProject) {
+      activeProject--;
+    }
+
+    return removedProject;
+  };
+
+  const activateProject = (index) => {
+    activeProject = index;
   };
 
   const init = (app) => {
     screen = Screen(app);
   };
 
-  return { getScreen, getProjects, createProject, deleteProject, init };
+  return {
+    getScreen,
+    getProjects,
+    createProject,
+    deleteProject,
+    activateProject,
+    init,
+  };
 })();
 
 App.init(App);
-App.getScreen().render_layout();
+App.getScreen().renderLayout();
