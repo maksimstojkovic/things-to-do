@@ -1,7 +1,9 @@
 const Todo = (title) => {
   const getTitle = () => title;
 
-  return { getTitle };
+  const setTitle = (newTitle) => (title = newTitle);
+
+  return { getTitle, setTitle };
 };
 
 const Project = (title) => {

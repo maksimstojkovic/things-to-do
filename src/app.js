@@ -9,6 +9,7 @@ const App = (() => {
 
   const getScreen = () => screen;
   const getProjects = () => projects;
+  const getActiveProject = () => activeProject;
 
   const createProject = (title) => {
     projects.push(Project(title));
@@ -37,6 +38,7 @@ const App = (() => {
   return {
     getScreen,
     getProjects,
+    getActiveProject,
     createProject,
     deleteProject,
     activateProject,

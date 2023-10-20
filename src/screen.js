@@ -20,15 +20,21 @@ const Screen = (app) => {
     addProjectButton.textContent = 'New Project';
     addProjectButton.addEventListener('click', () => {
       app.createProject('test');
+      app.activateProject(app.getProjects().length - 1);
       renderProjects();
     });
 
     const addTodoButton = appendChild(content, 'button', 'add-todo');
     addTodoButton.textContent = 'New Todo';
+    addTodoButton.addEventListener('click', () => {
+      if (app.getActiveProject() === null) return;
+      app.getProjects()[app.getActiveProject()].createTodo('test todo');
+      renderTodos();
+    });
 
     // Create div for cards in project and todo sections
     appendChild(sidebar, 'div', 'projects cards');
-    appendChild(content, 'div', 'tasks cards');
+    appendChild(content, 'div', 'todos cards');
   };
 
   const renderProjects = () => {
@@ -65,7 +71,37 @@ const Screen = (app) => {
     });
   };
 
-  const renderTodos = () => {};
+  const renderTodos = () => {
+    const todosDiv = document.querySelector('.todos');
+    todosDiv.replaceChildren();
+
+    const project = app.getProjects()[app.getActiveProject()];
+
+    project.getTodos().forEach((todo, index) => {
+      const card = appendChild(todosDiv, 'div', 'card');
+
+      const title = appendChild(card, 'p', 'title');
+      title.textContent = todo.getTitle();
+
+      const editButton = appendChild(card, 'button');
+      editButton.textContent = 'Edit';
+
+      editButton.addEventListener(
+        'click',
+        () => {
+          editTextEventHandler(todo, title, editButton);
+        },
+        { once: true }
+      );
+
+      const deleteButton = appendChild(card, 'button');
+      deleteButton.textContent = 'Delete';
+      deleteButton.addEventListener('click', () => {
+        project.deleteTodo(index);
+        card.remove();
+      });
+    });
+  };
 
   // Event handlers
   const editTextEventHandler = (object, title, editButton) => {
@@ -103,7 +139,7 @@ const Screen = (app) => {
     );
   };
 
-  return { renderLayout, renderProjects, renderTodos };
+  return { renderLayout };
 };
 
 export { Screen };
