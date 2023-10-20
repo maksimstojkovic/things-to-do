@@ -67,6 +67,7 @@ const Screen = (app) => {
       deleteButton.addEventListener('click', () => {
         app.deleteProject(index);
         card.remove();
+        renderTodos();
       });
     });
   };
