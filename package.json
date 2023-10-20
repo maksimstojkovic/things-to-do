@@ -5,6 +5,7 @@
   "main": "app.js",
   "private":"true",
   "scripts": {
+    "gh-pages": "git subtree push --prefix dist origin gh-pages",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
