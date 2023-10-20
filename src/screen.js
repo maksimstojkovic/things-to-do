@@ -66,7 +66,7 @@ const Screen = (app) => {
       deleteButton.textContent = 'Delete';
       deleteButton.addEventListener('click', () => {
         app.deleteProject(index);
-        card.remove();
+        renderProjects();
         renderTodos();
       });
     });
@@ -77,6 +77,7 @@ const Screen = (app) => {
     todosDiv.replaceChildren();
 
     const project = app.getProjects()[app.getActiveProject()];
+    if (!project) return;
 
     project.getTodos().forEach((todo, index) => {
       const card = appendChild(todosDiv, 'div', 'card');
@@ -100,7 +101,7 @@ const Screen = (app) => {
       deleteButton.textContent = 'Delete';
       deleteButton.addEventListener('click', () => {
         project.deleteTodo(index);
-        card.remove();
+        renderTodos();
       });
     });
   };
